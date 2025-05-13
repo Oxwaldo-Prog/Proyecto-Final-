@@ -6,7 +6,7 @@ def mostrar_estado(intentos, letras_descartadas, palabra_oculta, dibujo_ahorcado
     print(f'Letras descartadas: {", ".join(letras_descartadas)}')
     print(f'Palabra: {" ".join(palabra_oculta)}\n')
     print(dibujo_ahorcado[6 - intentos])
-#Esta funcion de usa return ya que se actualiza conforme se la da uso
+#Esta funcion no usa return ya que se actualiza conforme se la da uso
 
 #Definimos todo el abesedario para que pueda ser usado mas adelante
 lista_abecedario = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "ñ", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
@@ -30,7 +30,7 @@ def actualizar_palabra(letra, palabra_secreta, palabra_oculta):
     for i in range(len(palabra_secreta)):
         if palabra_secreta[i] == letra:
             palabra_oculta[i] = letra
-#Esta funcion de usa return ya que se actualiza conforme se la da uso
+#Esta funcion no usa return ya que se actualiza conforme se la da uso
 
 #Definimos la seleccion de dificultad, con la cual se de un menu de eleccion y con elif´s, segun la respuesta del usuario nos manda la informacion correcta al juego, 
 #En este caso selecciona un numero de intentos 
@@ -163,7 +163,7 @@ def jugar_ahorcado():
         =========
         '''
     ]
-#Esta funcion de usa return ya que se actualiza conforme se la da uso
+#Esta funcion no usa return ya que se actualiza conforme se la da uso
 # Mostrar título en color verde (ASCII art)
     print("""\033[32m         
     ██████╗ ██╗███████╗███╗   ██╗██╗   ██╗███████╗███╗   ██╗██╗██████╗  ██████╗      █████╗ ██╗          █████╗ ██╗  ██╗ ██████╗ ██████╗  ██████╗ █████╗ ██████╗  ██████╗ 
