@@ -57,7 +57,8 @@ def seleccionar_dificultad():
 
 #Importamos la libreria de random para que cada que se ejecute el programa se encargue de cambiar la palabra usada 
 import random
-#
+#Definimos obtener palabra, en esta funcion lo que hacemos es dependiendo de la dificultad elegida en la funcion anterior, escoger de que categoria sacar la palabra que se usara
+#Esta se elije con el usi de elif´s, despues de declarar que palabara pertenece a cada categoria 
 def obtener_palabra(dificultad):
     palabras_faciles = ["git", "sql", "php", "css", "html", "web", "api", "dns", "log", "try",
      "java", "perl", "dart", "tipo", "dato", "nulo", "texto", "lista", "tupla"
@@ -90,6 +91,7 @@ def obtener_palabra(dificultad):
         return random.choice(palabras_dificiles)
     else :
         return random.choice(palabras_imposibles)
+
 
 def jugar_ahorcado():
     dibujo_ahorcado = [
