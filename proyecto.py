@@ -196,3 +196,43 @@ def jugar_ahorcado():
             # Pedir letra al jugador
             letra = input('INTRODUCE LETRA: ').lower()
             # Validar letra (que sea única y válida)
+       while not letra_valida(letra, lista_abecedario, palabra_oculta, letras_descartadas): #division 
+                letra = input('INTRODUCE OTRA LETRA: ').lower()
+
+            # Verificar si la letra está en la palabra
+            if letra in palabra_secreta:
+                # Actualizar palabra oculta con la letra adivinada
+                actualizar_palabra(letra, palabra_secreta, palabra_oculta)
+                print('¡Has acertado la letra! Sigue así.')
+            else:
+                # Añadir letra incorrecta y restar intento
+                letras_descartadas.append(letra)
+                intentos -= 1
+                print('¡Has fallado la letra!')
+
+        # Comprobar resultado final
+        if '_' not in palabra_oculta:
+            # Mensaje de victoria (verde)
+            print("\n\033[32m¡Felicidades! Has adivinado la palabra correctamente.\033[0m")
+        else:
+            # Mensaje de derrota (rojo) con dibujo de ahorcado
+            print(f"""\n\033[31m
+     ██████╗  █████╗ ███╗   ███╗███████╗     ██████╗ ██╗   ██╗███████╗██████╗           +---+
+    ██╔════╝ ██╔══██╗████╗ ████║██╔════╝    ██╔═══██╗██║   ██║██╔════╝██╔══██╗          |   |
+    ██║  ███╗███████║██╔████╔██║█████╗      ██║   ██║██║   ██║█████╗  ██████╔╝         💀   |
+    ██║   ██║██╔══██║██║╚██╔╝██║██╔══╝      ██║   ██║╚██╗ ██╔╝██╔══╝  ██╔══██╗         /|\  |
+    ╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗    ╚██████╔╝ ╚████╔╝ ███████╗██║  ██║         / \  |      
+     ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝     ╚═════╝   ╚═══╝  ╚══════╝╚═╝  ╚═╝              |
+                                                                                     =========
+            \033[0m""")
+        # Mostrar la palabra correcta
+        print(f'La palabra era: {palabra_secreta}')
+
+        # Preguntar si quiere jugar otra vez
+        jugar_otra = input("¿Quieres jugar otra vez? (s/n): ").lower()
+        if jugar_otra != 's':
+            print("Gracias por jugar. ¡Hasta pronto!")
+            break
+        
+# Iniciar el juego
+jugar_ahorcado()
