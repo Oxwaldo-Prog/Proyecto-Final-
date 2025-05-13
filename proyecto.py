@@ -97,6 +97,7 @@ def obtener_palabra(dificultad):
         return random.choice(palabras_imposibles)
 
 #En esta definicion guardamos el dibujo grafico del juego ahorcado para darle mas interes al juego. hice uso de una triple comilla para poder usal mas lineas sin problema, asi como separe cada dibujo con comas 
+
 def jugar_ahorcado():
     dibujo_ahorcado = [
         '''
