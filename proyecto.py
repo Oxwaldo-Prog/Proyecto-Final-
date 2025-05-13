@@ -57,7 +57,8 @@ def seleccionar_dificultad():
 
 #Importamos la libreria de random para que cada que se ejecute el programa se encargue de cambiar la palabra usada 
 import random
-#
+#Definimos obtener palabra, funcion en la cual dependiendo la dificultad elegida anteriormente saca las palabras de la categoria adecuada
+#Estas se separan definidas segun su longitud, y despues se eligen mediante elif´s
 def obtener_palabra(dificultad):
     palabras_faciles = ["git", "sql", "php", "css", "html", "web", "api", "dns", "log", "try",
      "java", "perl", "dart", "tipo", "dato", "nulo", "texto", "lista", "tupla"
@@ -91,6 +92,7 @@ def obtener_palabra(dificultad):
     else :
         return random.choice(palabras_imposibles)
 
+#En esta definicion guardamos el dibujo grafico del juego ahorcado para darle mas interes al juego. hice uso de una triple comilla para poder usal mas lineas sin problema, asi como separe cada dibujo con comas 
 def jugar_ahorcado():
     dibujo_ahorcado = [
         '''
