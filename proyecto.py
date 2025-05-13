@@ -164,3 +164,35 @@ def jugar_ahorcado():
         '''
     ]
 #Esta funcion de usa return ya que se actualiza conforme se la da uso
+# Mostrar título en color verde (ASCII art)
+    print("""\033[32m         
+    ██████╗ ██╗███████╗███╗   ██╗██╗   ██╗███████╗███╗   ██╗██╗██████╗  ██████╗      █████╗ ██╗          █████╗ ██╗  ██╗ ██████╗ ██████╗  ██████╗ █████╗ ██████╗  ██████╗ 
+    ██╔══██╗██║██╔════╝████╗  ██║██║   ██║██╔════╝████╗  ██║██║██╔══██╗██╔═══██╗    ██╔══██╗██║         ██╔══██╗██║  ██║██╔═══██╗██╔══██╗██╔════╝██╔══██╗██╔══██╗██╔═══██╗
+    ██████╔╝██║█████╗  ██╔██╗ ██║██║   ██║█████╗  ██╔██╗ ██║██║██║  ██║██║   ██║    ███████║██║         ███████║███████║██║   ██║██████╔╝██║     ███████║██║  ██║██║   ██║
+    ██╔══██╗██║██╔══╝  ██║╚██╗██║╚██╗ ██╔╝██╔══╝  ██║╚██╗██║██║██║  ██║██║   ██║    ██╔══██║██║         ██╔══██║██╔══██║██║   ██║██╔══██╗██║     ██╔══██║██║  ██║██║   ██║
+    ██████╔╝██║███████╗██║ ╚████║ ╚████╔╝ ███████╗██║ ╚████║██║██████╔╝╚██████╔╝    ██║  ██║███████╗    ██║  ██║██║  ██║╚██████╔╝██║  ██║╚██████╗██║  ██║██████╔╝╚██████╔╝
+    ╚═════╝ ╚═╝╚══════╝╚═╝  ╚═══╝  ╚═══╝  ╚══════╝╚═╝  ╚═══╝╚═╝╚═════╝  ╚═════╝     ╚═╝  ╚═╝╚══════╝    ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚═════╝  ╚═════╝ 
+    \033[0m""")
+
+    # Mostrar reglas del juego
+    print('Reglas del juego: Introduce letras para adivinar la palabra oculta.')
+    print('PISTA: Todas las palabras están relacionadas con programación.\n')
+
+    # Bucle principal del juego (permite jugar varias veces)
+    while True:
+        # Seleccionar dificultad y obtener número de intentos
+        dificultad, intentos = seleccionar_dificultad()
+        # Obtener palabra aleatoria según dificultad
+        palabra_secreta = obtener_palabra(dificultad)
+        # Crear lista de guiones bajos para mostrar letras adivinadas
+        palabra_oculta = ['_'] * len(palabra_secreta)
+        # Lista para almacenar letras incorrectas
+        letras_descartadas = []
+
+        # Bucle del turno: se ejecuta mientras queden intentos y letras por adivinar
+        while intentos > 0 and '_' in palabra_oculta:
+            # Mostrar estado actual del juego
+            mostrar_estado(intentos, letras_descartadas, palabra_oculta, dibujo_ahorcado, dificultad)
+            # Pedir letra al jugador
+            letra = input('INTRODUCE LETRA: ').lower()
+            # Validar letra (que sea única y válida)
